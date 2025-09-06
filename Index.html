@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Zonas de Treinamento</title>
+    
     <style>
         * {
             margin: 0;
@@ -603,8 +604,8 @@
             </div>
 
             <div class="toggle-container">
-                <button class="toggle-btn active" id="speedBtn" onclick="showSpeed()">Velocidade (km/h)</button>
-                <button class="toggle-btn" id="paceBtn" onclick="showPace()">Pace (min/km)</button>
+                <button class="toggle-btn active" id="speedBtn" onclick="showSpeed()">Velocidade </button>
+                <button class="toggle-btn" id="paceBtn" onclick="showPace()">Pace </button>
             </div>
 
             <div class="table-container">
@@ -614,8 +615,8 @@
                         <thead>
                             <tr>
                                 <th></th>
-                                <th>Mínimo</th>
-                                <th>Máximo</th>
+                                <th>Mínimo (Km/h) </th>
+                                <th>Máximo (Km/h) </th>
                             </tr>
                         </thead>
                         <tbody id="speedTableBody">
@@ -628,8 +629,8 @@
                         <thead>
                             <tr>
                                 <th></th>
-                                <th>Mínimo</th>
-                                <th>Máximo</th>
+                                <th>Mínimo (min/km) </th>
+                                <th>Máximo (min/km) </th>
                             </tr>
                         </thead>
                         <tbody id="paceTableBody">
@@ -654,10 +655,10 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Zonas</th>
-                            <th>Inferior</th>
-                            <th>Superior</th>
-                            <th>Esforço</th>
+                            <th><b>Zonas</b></th>
+                            <th><b>Inferior</b></th>
+                            <th><b>Superior</b></th>
+                            <th><b>Esforço</b></th>
                         </tr>
                     </thead>
                     <tbody id="trainingTable">
@@ -669,7 +670,7 @@
 
         <!-- Calculadora Multifuncional -->
         <div class="calculator-section">
-            <div class="calculator-header">Calculadora Multifuncional</div>
+            <div class="calculator-header">Calculadora de Ritmo</div>
             
             <div class="calc-toggle-container">
                 <button class="calc-toggle-btn active" id="calcPaceBtn" onclick="switchCalcMode('pace')">Calcular Pace</button>
@@ -717,7 +718,7 @@
         </div>
 
         <div class="footer">
-            © 2024 Calculadora de Zonas de Treinamento. Desenvolvido para atletas que buscam performance.
+            © 2025 Calculadora de Zonas de Treinamento. Para atletas que buscam performance - Desenvolvido por Ricardo Junior
         </div>
     </div>
 
@@ -1056,3 +1057,4 @@
     </script>
 </body>
 </html>
+
