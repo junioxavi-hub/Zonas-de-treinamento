@@ -944,7 +944,8 @@
             const unitLabel = document.getElementById('unitLabel');
             const distanceInput = document.getElementById('distance');
             const trainingTableTitle = document.getElementById('trainingTableTitle');
-            
+            const resultsSection = document.getElementById('resultsSection'); // Adicionado para controlar a visibilidade
+
             currentTestType = testType;
             
             if (testType === '5min') {
@@ -960,7 +961,6 @@
                 distanceInput.oninput = null; // Remove o handler de input
                 trainingTableTitle.textContent = 'Zonas de Treinamento - Teste de 5 minutos';
                 zoneConfig = [...defaultZoneConfig5min]; // Carrega config de 5min
-                // REMOVIDO: window.scrollTo(0, 0); // Rola para o topo
             } else {
                 btn3km.classList.add('active');
                 btn5min.classList.remove('active');
@@ -976,9 +976,13 @@
                 zoneConfig = [...defaultZoneConfig3km]; // Carrega config de 3km
             }
             
-            // Limpar resultados e recalcular com a nova configuração
-            document.getElementById('resultsSection').style.display = 'none';
-            calculateZones(); // Recalcula para atualizar a tabela de zonas de treinamento
+            // Esconde a seção de resultados de pace/velocidade ao trocar o tipo de teste
+            resultsSection.style.display = 'none';
+            
+            // Recalcula as zonas para atualizar a tabela de zonas de treinamento
+            // A função calculateZones() irá preencher a trainingTable com a nova zoneConfig.
+            // Ela só exibirá a resultsSection se o input for válido para um cálculo completo.
+            calculateZones(); 
         }
 
         function calculateZones() {
@@ -991,7 +995,12 @@
                 inputValue = parseFloat(inputValue.replace(',', '.'));
                 if (isNaN(inputValue) || inputValue <= 0) {
                     flashInputError(input);
-                    return;
+                    // Não esconde a resultsSection aqui, pois a trainingTable ainda precisa ser atualizada
+                    // A resultsSection já foi escondida em switchTestType ou será escondida se o input for inválido
+                    // e o cálculo não puder prosseguir para pace/speed.
+                    // A trainingTable será atualizada de qualquer forma.
+                    updateTrainingTable(); // Garante que a tabela de zonas de treinamento seja atualizada
+                    return; // Sai da função se o input for inválido para o cálculo de pace/speed
                 }
                 timeInMinutes = 5;
                 baseSpeed = (inputValue / timeInMinutes) * 60; // km/h
@@ -1000,13 +1009,15 @@
                 timeInMinutes = parseTimeInput(inputValue);
                 if (isNaN(timeInMinutes) || timeInMinutes <= 0) {
                     flashInputError(input);
-                    return;
+                    updateTrainingTable(); // Garante que a tabela de zonas de treinamento seja atualizada
+                    return; // Sai da função se o input for inválido para o cálculo de pace/speed
                 }
                 const distance = 3; // km fixo
                 baseSpeed = (distance / timeInMinutes) * 60; // km/h
             }
 
-            basePaceMinutes = 60 / baseSpeed; // min/km
+            // Se chegamos aqui, o input é válido para calcular pace/speed
+            const basePaceMinutes = 60 / baseSpeed; // min/km
             const basePaceMin = Math.floor(basePaceMinutes);
             const basePaceSec = Math.round((basePaceMinutes - basePaceMin) * 60);
 
@@ -1062,7 +1073,22 @@
             });
             document.getElementById('paceTableBody').innerHTML = paceHTML;
 
-            // Criar tabela de zonas de treinamento
+            // Criar tabela de zonas de treinamento (esta parte é sempre atualizada)
+            updateTrainingTable();
+
+            // Mostrar resultados com animação (apenas se o cálculo de pace/speed foi bem-sucedido)
+            const resultsSection = document.getElementById('resultsSection');
+            resultsSection.style.display = 'block';
+            resultsSection.classList.add('fade-in');
+            
+            // Scroll suave para os resultados
+            setTimeout(() => {
+                resultsSection.scrollIntoView({ behavior: 'smooth' });
+            }, 200);
+        }
+
+        // Nova função para atualizar apenas a tabela de zonas de treinamento
+        function updateTrainingTable() {
             let trainingHTML = '';
             zoneConfig.forEach(config => {
                 trainingHTML += `
@@ -1075,17 +1101,8 @@
                 `;
             });
             document.getElementById('trainingTable').innerHTML = trainingHTML;
-
-            // Mostrar resultados com animação
-            const resultsSection = document.getElementById('resultsSection');
-            resultsSection.style.display = 'block';
-            resultsSection.classList.add('fade-in');
-            
-            // Scroll suave para os resultados
-            setTimeout(() => {
-                resultsSection.scrollIntoView({ behavior: 'smooth' });
-            }, 200);
         }
+
 
         function showSpeed() {
             document.getElementById('speedTable').style.display = 'block';
@@ -1297,10 +1314,7 @@
         // Garante que o input de distância comece como 'number' para o teste de 5min
         document.getElementById('distance').type = 'number'; 
         document.getElementById('distance').value = '1.00';
-        calculateZones();
-
+        calculateZones(); // Chama calculateZones na inicialização para preencher a tabela de zonas
     </script>
 </body>
 </html>
-
-
