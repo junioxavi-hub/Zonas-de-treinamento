@@ -17,6 +17,7 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             color: #333;
+            transition: background-color 0.3s ease, color 0.3s ease; /* Transição para modo escuro */
         }
 
         .container {
@@ -26,16 +27,18 @@
             background: rgba(255, 255, 255, 0.95);
             min-height: 100vh;
             box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transição para modo escuro */
         }
 
         .header {
             text-align: center;
-            margin-bottom: 15px; /* Ajustado para dar espaço à frase */
+            margin-bottom: 15px;
             padding: 20px 0;
             background: linear-gradient(45deg, #4CAF50, #45a049);
             border-radius: 15px;
             color: white;
             box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+            transition: background 0.3s ease, box-shadow 0.3s ease; /* Transição para modo escuro */
         }
 
         .header h1 {
@@ -44,13 +47,13 @@
             font-weight: 600;
         }
 
-        /* Estilo para a frase motivacional */
         .motto {
             text-align: center;
             font-style: italic;
             color: #555;
-            margin-bottom: 25px; /* Espaço entre a frase e os botões */
+            margin-bottom: 25px;
             font-size: 0.95em;
+            transition: color 0.3s ease; /* Transição para modo escuro */
         }
 
         .test-type-container {
@@ -59,6 +62,7 @@
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            transition: box-shadow 0.3s ease; /* Transição para modo escuro */
         }
 
         .test-type-btn {
@@ -93,6 +97,7 @@
             margin-bottom: 25px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             border: 1px solid #e0e0e0;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Transição para modo escuro */
         }
 
         .input-group {
@@ -105,6 +110,7 @@
             font-weight: 600;
             color: #555;
             font-size: 0.9em;
+            transition: color 0.3s ease; /* Transição para modo escuro */
         }
 
         .distance-input-container {
@@ -120,7 +126,7 @@
             border-radius: 10px;
             font-size: 1.3em;
             font-weight: bold;
-            text-align: center; /* Centralizado por padrão */
+            text-align: center;
             transition: all 0.3s ease;
             background: #f8fff8;
         }
@@ -132,7 +138,6 @@
             box-shadow: 0 0 15px rgba(76, 175, 80, 0.3);
         }
 
-        /* Novo estilo para feedback de erro */
         .input-error-flash {
             animation: flashRedBorder 0.6s ease-in-out;
         }
@@ -143,10 +148,9 @@
             100% { border-color: #4CAF50; }
         }
 
-        /* Estilo para o wrapper de input de tempo/pace (sem separador fixo) */
         .time-input-wrapper {
             position: relative;
-            display: block; /* Alterado para block */
+            display: block;
             width: 100%;
         }
 
@@ -157,7 +161,7 @@
             border-radius: 10px;
             font-size: 1.3em;
             font-weight: bold;
-            text-align: center; /* Centralizado */
+            text-align: center;
             transition: all 0.3s ease;
             background: #f8fff8;
         }
@@ -194,6 +198,7 @@
             margin-bottom: 20px;
             text-align: center;
             box-shadow: 0 4px 20px rgba(54, 209, 220, 0.3);
+            transition: background 0.3s ease, box-shadow 0.3s ease; /* Transição para modo escuro */
         }
 
         .summary-stats {
@@ -258,6 +263,7 @@
             margin-bottom: 20px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             border: 1px solid #e0e0e0;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Transição para modo escuro */
         }
 
         .table-header {
@@ -268,6 +274,7 @@
             font-weight: 600;
             font-size: 1em;
             position: relative;
+            transition: background 0.3s ease; /* Transição para modo escuro */
         }
 
         .config-btn {
@@ -305,6 +312,7 @@
             text-align: center;
             font-size: 0.85em;
             border-bottom: 1px solid #f0f0f0;
+            transition: border-color 0.3s ease; /* Transição para modo escuro */
         }
 
         th {
@@ -312,6 +320,7 @@
             font-weight: 600;
             color: #555;
             font-size: 0.8em;
+            transition: background-color 0.3s ease, color 0.3s ease; /* Transição para modo escuro */
         }
 
         .zone-1 { background: rgba(173, 216, 230, 0.4); }
@@ -320,18 +329,18 @@
         .zone-4 { background: rgba(255, 165, 0, 0.4); }
         .zone-5 { background: rgba(255, 99, 71, 0.4); }
 
-        /* Cores mais suaves para zonas de treinamento */
-        .zone-training-1 { background: rgba(173, 216, 230, 0.3); } /* Light Blue mais suave */
-        .zone-training-2 { background: rgba(135, 206, 235, 0.3); } /* Sky Blue mais suave */
-        .zone-training-3 { background: rgba(255, 215, 0, 0.3); } /* Gold mais suave */
-        .zone-training-4 { background: rgba(255, 165, 0, 0.3); } /* Orange mais suave */
-        .zone-training-5 { background: rgba(255, 99, 71, 0.3); } /* Red Orange mais suave */
+        .zone-training-1 { background: rgba(173, 216, 230, 0.3); }
+        .zone-training-2 { background: rgba(135, 206, 235, 0.3); }
+        .zone-training-3 { background: rgba(255, 215, 0, 0.3); }
+        .zone-training-4 { background: rgba(255, 165, 0, 0.3); }
+        .zone-training-5 { background: rgba(255, 99, 71, 0.3); }
 
         .zone-label {
             font-weight: bold;
             color: #333;
             text-align: left;
             padding-left: 12px;
+            transition: color 0.3s ease; /* Transição para modo escuro */
         }
 
         .zone-number {
@@ -355,7 +364,6 @@
             background: transparent;
         }
 
-        /* Modal Styles */
         .modal {
             display: none;
             position: fixed;
@@ -376,6 +384,7 @@
             max-width: 400px;
             max-height: 80vh;
             overflow-y: auto;
+            transition: background-color 0.3s ease; /* Transição para modo escuro */
         }
 
         .modal-header {
@@ -385,6 +394,7 @@
             margin-bottom: 20px;
             padding-bottom: 10px;
             border-bottom: 2px solid #eee;
+            transition: border-color 0.3s ease; /* Transição para modo escuro */
         }
 
         .close-btn {
@@ -404,14 +414,15 @@
             border-radius: 5px;
             margin: 5px 0;
             font-size: 1em;
+            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; /* Transição para modo escuro */
         }
 
-        /* Estilos para o modal de configuração */
         .config-zone-card {
             margin-bottom: 15px;
             padding: 15px;
             border: 1px solid #ddd;
             border-radius: 8px;
+            transition: background-color 0.3s ease, border-color 0.3s ease; /* Transição para modo escuro */
         }
 
         .config-zone-card h4 {
@@ -419,20 +430,19 @@
             margin-bottom: 10px;
             padding-bottom: 5px;
             border-bottom: 1px solid rgba(0,0,0,0.1);
+            transition: border-color 0.3s ease; /* Transição para modo escuro */
         }
 
-        /* Cores para os cards de configuração das zonas */
         .config-zone-card.zone-training-1 { background: rgba(173, 216, 230, 0.1); border-color: rgba(173, 216, 230, 0.5); }
-        .config-zone-card.zone-training-1 h4 { color: #4682B4; } /* SteelBlue */
+        .config-zone-card.zone-training-1 h4 { color: #4682B4; }
         .config-zone-card.zone-training-2 { background: rgba(135, 206, 235, 0.1); border-color: rgba(135, 206, 235, 0.5); }
-        .config-zone-card.zone-training-2 h4 { color: #1E90FF; } /* DodgerBlue */
+        .config-zone-card.zone-training-2 h4 { color: #1E90FF; }
         .config-zone-card.zone-training-3 { background: rgba(255, 215, 0, 0.1); border-color: rgba(255, 215, 0, 0.5); }
-        .config-zone-card.zone-training-3 h4 { color: #DAA520; } /* Goldenrod */
+        .config-zone-card.zone-training-3 h4 { color: #DAA520; }
         .config-zone-card.zone-training-4 { background: rgba(255, 165, 0, 0.1); border-color: rgba(255, 165, 0, 0.5); }
-        .config-zone-card.zone-training-4 h4 { color: #FF8C00; } /* DarkOrange */
+        .config-zone-card.zone-training-4 h4 { color: #FF8C00; }
         .config-zone-card.zone-training-5 { background: rgba(255, 99, 71, 0.1); border-color: rgba(255, 99, 71, 0.5); }
-        .config-zone-card.zone-training-5 h4 { color: #FF4500; } /* OrangeRed */
-
+        .config-zone-card.zone-training-5 h4 { color: #FF4500; }
 
         .save-config-btn {
             width: 100%;
@@ -446,7 +456,6 @@
             margin-top: 15px;
         }
 
-        /* Calculadora Multifuncional */
         .calculator-section {
             margin-top: 30px;
             background: linear-gradient(135deg, #FFF8DC 0%, #FFFACD 100%);
@@ -454,6 +463,7 @@
             padding: 20px;
             border: 2px solid #e0e0e0;
             box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; /* Transição para modo escuro */
         }
 
         .calculator-header {
@@ -464,6 +474,7 @@
             text-align: left;
             border-bottom: 3px solid #FF9500;
             padding-bottom: 10px;
+            transition: color 0.3s ease, border-color 0.3s ease; /* Transição para modo escuro */
         }
 
         .calc-toggle-container {
@@ -472,6 +483,7 @@
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: box-shadow 0.3s ease; /* Transição para modo escuro */
         }
 
         .calc-toggle-btn {
@@ -510,6 +522,7 @@
             font-weight: 600;
             color: #555;
             font-size: 0.85em;
+            transition: color 0.3s ease; /* Transição para modo escuro */
         }
 
         .calc-input {
@@ -558,6 +571,7 @@
             border-radius: 10px;
             text-align: center;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transição para modo escuro */
         }
 
         .calc-result-value {
@@ -570,6 +584,7 @@
         .calc-result-label {
             font-size: 0.8em;
             color: #666;
+            transition: color 0.3s ease; /* Transição para modo escuro */
         }
 
         .footer {
@@ -580,6 +595,199 @@
             margin-top: 30px;
             border-radius: 10px;
             font-size: 0.85em;
+            position: relative; /* Para posicionar o botão */
+            padding-bottom: 40px; /* Espaço extra para o botão */
+            transition: background-color 0.3s ease, color 0.3s ease; /* Transição para modo escuro */
+        }
+
+        /* Estilos para o botão de modo escuro */
+        .dark-mode-toggle {
+            position: absolute;
+            bottom: 10px; /* Desce o botão */
+            right: 15px;
+            background: #555;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-size: 0.75em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .dark-mode-toggle:hover {
+            background: #777;
+        }
+
+        /* Estilos do Modo Escuro */
+        body.dark-mode {
+            background: linear-gradient(135deg, #1a2a3a 0%, #2a3a4a 100%); /* Azul marinho escuro */
+            color: #e0e0e0; /* Cinza claro para o texto */
+        }
+
+        .container.dark-mode {
+            background: #2c3e50; /* Azul escuro mais suave */
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .header.dark-mode {
+            background: linear-gradient(45deg, #2e8b57, #3cb371); /* Verde mar escuro */
+            box-shadow: 0 4px 15px rgba(46, 139, 87, 0.3);
+        }
+
+        .motto.dark-mode {
+            color: #cccccc; /* Cinza um pouco mais escuro */
+        }
+
+        .test-type-container.dark-mode {
+            box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+        }
+
+        .test-type-btn.dark-mode:not(.active) {
+            background: #34495e; /* Fundo do botão inativo */
+            color: #cccccc;
+        }
+
+        .test-type-btn.dark-mode:hover:not(.active) {
+            background: #4a607a; /* Fundo do botão inativo ao hover */
+        }
+
+        .input-section.dark-mode {
+            background: #34495e; /* Fundo da seção de input */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            border-color: #4a607a;
+        }
+
+        .input-group label.dark-mode {
+            color: #cccccc;
+        }
+
+        .input-group input.dark-mode {
+            background: #4a607a; /* Fundo do input */
+            border-color: #2e8b57; /* Borda do input */
+            color: #e0e0e0;
+        }
+
+        .input-group input.dark-mode:focus {
+            background: #5a708a;
+            border-color: #3cb371;
+            box-shadow: 0 0 15px rgba(46, 139, 87, 0.5);
+        }
+
+        .time-input-wrapper input.dark-mode {
+            background: #4a607a;
+            border-color: #2e8b57;
+            color: #e0e0e0;
+        }
+
+        .summary-card.dark-mode {
+            background: linear-gradient(45deg, #2a5280, #3a6a9a); /* Azul mais profundo */
+            box-shadow: 0 4px 20px rgba(42, 82, 128, 0.3);
+        }
+
+        .toggle-btn.dark-mode {
+            background: #34495e;
+            border-color: #667eea;
+            color: #667eea;
+        }
+
+        .toggle-btn.dark-mode.active {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .toggle-btn.dark-mode:hover {
+            background: #4a607a;
+        }
+
+        .table-container.dark-mode {
+            background: #34495e;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            border-color: #4a607a;
+        }
+
+        .table-header.dark-mode {
+            background: linear-gradient(45deg, #4a607a, #5a708a); /* Gradiente mais escuro */
+        }
+
+        th.dark-mode {
+            background: #4a607a;
+            color: #cccccc;
+        }
+
+        td.dark-mode {
+            border-bottom-color: #4a607a;
+            color: #e0e0e0;
+        }
+
+        .zone-label.dark-mode {
+            color: #e0e0e0;
+        }
+
+        .modal-content.dark-mode {
+            background-color: #34495e;
+        }
+
+        .modal-header.dark-mode {
+            border-bottom-color: #4a607a;
+        }
+
+        .config-input.dark-mode {
+            background-color: #4a607a;
+            border-color: #5a708a;
+            color: #e0e0e0;
+        }
+
+        .config-zone-card.dark-mode {
+            border-color: #4a607a;
+        }
+
+        .config-zone-card.dark-mode h4 {
+            border-bottom-color: rgba(255,255,255,0.1);
+        }
+
+        .calculator-section.dark-mode {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); /* Fundo da calculadora */
+            border-color: #4a607a;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .calculator-header.dark-mode {
+            color: #e0e0e0;
+            border-bottom-color: #FF9500;
+        }
+
+        .calc-toggle-container.dark-mode {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .calc-toggle-btn.dark-mode:not(.active) {
+            background: #34495e;
+            color: #cccccc;
+        }
+
+        .calc-input-group label.dark-mode {
+            color: #cccccc;
+        }
+
+        .calc-input.dark-mode {
+            background: #4a607a;
+            border-color: #5a708a;
+            color: #e0e0e0;
+        }
+
+        .calc-result-card.dark-mode {
+            background: #4a607a;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .calc-result-label.dark-mode {
+            color: #cccccc;
+        }
+
+        .footer.dark-mode {
+            background: #1a2a3a; /* Fundo do rodapé mais escuro */
+            color: #bbbbbb;
         }
 
         @media (max-width: 480px) {
@@ -614,6 +822,15 @@
             .celebration-image img {
                 max-width: 300px;
             }
+
+            .dark-mode-toggle {
+                position: static; /* Remove posicionamento absoluto em telas pequenas */
+                margin-top: 10px; /* Adiciona margem superior */
+                width: auto; /* Ajusta largura */
+            }
+            .footer {
+                padding-bottom: 20px; /* Reduz o padding extra quando o botão não é absoluto */
+            }
         }
 
         .fade-in {
@@ -631,20 +848,20 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
+    <div class="container" id="mainContainer">
+        <div class="header" id="mainHeader">
             <h1>Calculadora de Zonas de Treinamento</h1>
         </div>
 
-        <p class="motto"><i>Para evoluir não basta correr, deve-se treinar. Faça o teste no seu limite e descubra suas zonas ideais</i></p>
+        <p class="motto" id="mainMotto"><i>Para evoluir não basta correr, deve-se treinar. Faça o teste no seu limite e descubra suas zonas ideais</i></p>
 
         <!-- Botões para alternar entre tipos de teste -->
-        <div class="test-type-container">
+        <div class="test-type-container" id="testTypeContainer">
             <button class="test-type-btn active" id="test5min" onclick="switchTestType('5min')">Teste de 5 Minutos</button>
             <button class="test-type-btn" id="test3km" onclick="switchTestType('3km')">Teste de 3 km</button>
         </div>
 
-        <div class="input-section">
+        <div class="input-section" id="inputSection">
             <div class="input-group">
                 <label for="distance" id="inputLabel">Insira a distância aqui!</label>
                 <div class="distance-input-container" id="distance-wrapper">
@@ -659,7 +876,7 @@
         </div>
 
         <div class="results-section" id="resultsSection">
-            <div class="summary-card">
+            <div class="summary-card" id="summaryCard">
                 <div class="summary-stats">
                     <div class="stat">
                         <span class="stat-value" id="avgPace">5:00</span>
@@ -677,15 +894,15 @@
                 <button class="toggle-btn" id="paceBtn" onclick="showPace()">Pace </button>
             </div>
 
-            <div class="table-container">
-                <div class="table-header">Intensidade</div>
+            <div class="table-container" id="speedTableContainer">
+                <div class="table-header" id="speedTableHeader">Intensidade</div>
                 <div id="speedTable">
                     <table>
                         <thead>
                             <tr>
-                                <th></th>
-                                <th>Mínimo (Km/h) </th>
-                                <th>Máximo (Km/h) </th>
+                                <th class="table-header-cell"></th>
+                                <th class="table-header-cell">Mínimo (Km/h) </th>
+                                <th class="table-header-cell">Máximo (Km/h) </th>
                             </tr>
                         </thead>
                         <tbody id="speedTableBody">
@@ -697,9 +914,9 @@
                     <table>
                         <thead>
                             <tr>
-                                <th></th>
-                                <th>Mínimo (min/km) </th>
-                                <th>Máximo (min/km) </th>
+                                <th class="table-header-cell"></th>
+                                <th class="table-header-cell">Mínimo (min/km) </th>
+                                <th class="table-header-cell">Máximo (min/km) </th>
                             </tr>
                         </thead>
                         <tbody id="paceTableBody">
@@ -716,18 +933,18 @@
             </div>
         </div>
         
-            <div class="table-container">
-                <div class="table-header">
+            <div class="table-container" id="trainingTableContainer">
+                <div class="table-header" id="trainingTableHeader">
                     <span id="trainingTableTitle">Zonas de Treinamento - Teste de 5 minutos</span>
                     <button class="config-btn" onclick="openConfigModal()" title="Configurações">⚙️</button>
                 </div>
                 <table>
                     <thead>
                         <tr>
-                            <th><b>Zonas</b></th>
-                            <th><b>Inferior</b></th>
-                            <th><b>Superior</b></th>
-                            <th><b>Esforço</b></th>
+                            <th class="table-header-cell"><b>Zonas</b></th>
+                            <th class="table-header-cell"><b>Inferior</b></th>
+                            <th class="table-header-cell"><b>Superior</b></th>
+                            <th class="table-header-cell"><b>Esforço</b></th>
                         </tr>
                     </thead>
                     <tbody id="trainingTable">
@@ -738,10 +955,10 @@
 
 
         <!-- Calculadora Multifuncional -->
-        <div class="calculator-section">
-            <div class="calculator-header">Calculadora de Ritmo</div>
+        <div class="calculator-section" id="calculatorSection">
+            <div class="calculator-header" id="calculatorHeader">Calculadora de Ritmo</div>
             
-            <div class="calc-toggle-container">
+            <div class="calc-toggle-container" id="calcToggleContainer">
                 <button class="calc-toggle-btn active" id="calcPaceBtn" onclick="switchCalcMode('pace')">Calcular Pace</button>
                 <button class="calc-toggle-btn" id="calcTimeBtn" onclick="switchCalcMode('time')">Calcular Tempo</button>
             </div>
@@ -749,11 +966,11 @@
             <div id="paceCalcMode">
                 <div class="calc-inputs">
                     <div class="calc-input-group">
-                        <label for="calcDistance">Distância (km)</label>
+                        <label for="calcDistance" id="calcDistanceLabel">Distância (km)</label>
                         <input type="number" id="calcDistance" class="calc-input" placeholder="5" step="0.1">
                     </div>
                     <div class="calc-input-group">
-                        <label for="calcTime">Tempo (HH:MM:SS)</label>
+                        <label for="calcTime" id="calcTimeLabel">Tempo (HH:MM:SS)</label>
                         <div class="time-input-wrapper">
                             <input type="text" id="calcTime" class="calc-input" value="00:00:00">
                         </div>
@@ -765,11 +982,11 @@
             <div id="timeCalcMode" style="display: none;">
                 <div class="calc-inputs">
                     <div class="calc-input-group">
-                        <label for="calcDistanceTime">Distância (km)</label>
+                        <label for="calcDistanceTime" id="calcDistanceTimeLabel">Distância (km)</label>
                         <input type="number" id="calcDistanceTime" class="calc-input" placeholder="5" step="0.1">
                     </div>
                     <div class="calc-input-group">
-                        <label for="calcPaceTime">Pace (MM:SS)</label>
+                        <label for="calcPaceTime" id="calcPaceTimeLabel">Pace (MM:SS)</label>
                         <div class="time-input-wrapper">
                             <input type="text" id="calcPaceTime" class="calc-input" value="00:00">
                         </div>
@@ -779,26 +996,27 @@
             </div>
 
             <div class="calc-results" id="calcResults" style="display: none;">
-                <div class="calc-result-card">
+                <div class="calc-result-card" id="resultPaceCard">
                     <div class="calc-result-value" id="resultPace">5:00</div>
                     <div class="calc-result-label">Pace por km</div>
                 </div>
-                <div class="calc-result-card">
+                <div class="calc-result-card" id="resultSpeedCard">
                     <div class="calc-result-value" id="resultSpeed">12.0 km/h</div>
                     <div class="calc-result-label">Velocidade Média</div>
                 </div>
             </div>
         </div>
 
-        <div class="footer">
+        <div class="footer" id="mainFooter">
             © 2025 Para atletas que buscam performance - Desenvolvido por Ricardo Junior
+            <button class="dark-mode-toggle" id="darkModeToggle">Modo Escuro</button>
         </div>
     </div>
 
     <!-- Modal de Configuração -->
     <div id="configModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
+        <div class="modal-content" id="configModalContent">
+            <div class="modal-header" id="configModalHeader">
                 <h3>Configurar Zonas de Treinamento</h3>
                 <button class="close-btn" onclick="closeConfigModal()">×</button>
             </div>
@@ -944,7 +1162,7 @@
             const unitLabel = document.getElementById('unitLabel');
             const distanceInput = document.getElementById('distance');
             const trainingTableTitle = document.getElementById('trainingTableTitle');
-            const resultsSection = document.getElementById('resultsSection'); // Adicionado para controlar a visibilidade
+            const resultsSection = document.getElementById('resultsSection');
 
             currentTestType = testType;
             
@@ -955,33 +1173,29 @@
                 unitLabel.textContent = 'km';
                 distanceInput.placeholder = '1,00';
                 distanceInput.value = '1.00';
-                distanceInput.type = 'number'; // Volta para number para distância
+                distanceInput.type = 'number';
                 distanceInput.max = '10';
-                distanceInput.style.textAlign = 'center'; // Centraliza o texto
-                distanceInput.oninput = null; // Remove o handler de input
+                distanceInput.style.textAlign = 'center';
+                distanceInput.oninput = null;
                 trainingTableTitle.textContent = 'Zonas de Treinamento - Teste de 5 minutos';
-                zoneConfig = [...defaultZoneConfig5min]; // Carrega config de 5min
+                zoneConfig = [...defaultZoneConfig5min];
             } else {
                 btn3km.classList.add('active');
                 btn5min.classList.remove('active');
                 inputLabel.textContent = 'Insira o tempo aqui!';
-                unitLabel.textContent = 'Minutos (mm:ss)'; // Altera a unidade para MM:SS
-                distanceInput.placeholder = '00:00'; // Exemplo de formato
-                distanceInput.value = '00:00'; // Valor inicial no formato MM:SS
-                distanceInput.type = 'text'; // Muda para text para aceitar MM:SS
-                distanceInput.max = ''; // Remove max para tempo
-                distanceInput.style.textAlign = 'center'; // Centraliza o texto
-                distanceInput.oninput = () => formatTimeInputRightToLeft(distanceInput, 'MM:SS'); // Adiciona o handler
+                unitLabel.textContent = 'Minutos (mm:ss)';
+                distanceInput.placeholder = '00:00';
+                distanceInput.value = '00:00';
+                distanceInput.type = 'text';
+                distanceInput.max = '';
+                distanceInput.style.textAlign = 'center';
+                distanceInput.oninput = () => formatTimeInputRightToLeft(distanceInput, 'MM:SS');
                 trainingTableTitle.textContent = 'Zonas de Treinamento - Teste de 3 km';
-                zoneConfig = [...defaultZoneConfig3km]; // Carrega config de 3km
+                zoneConfig = [...defaultZoneConfig3km];
             }
             
-            // Esconde a seção de resultados de pace/velocidade ao trocar o tipo de teste
             resultsSection.style.display = 'none';
             
-            // Recalcula as zonas para atualizar a tabela de zonas de treinamento
-            // A função calculateZones() irá preencher a trainingTable com a nova zoneConfig.
-            // Ela só exibirá a resultsSection se o input for válido para um cálculo completo.
             calculateZones(); 
         }
 
@@ -995,37 +1209,29 @@
                 inputValue = parseFloat(inputValue.replace(',', '.'));
                 if (isNaN(inputValue) || inputValue <= 0) {
                     flashInputError(input);
-                    // Não esconde a resultsSection aqui, pois a trainingTable ainda precisa ser atualizada
-                    // A resultsSection já foi escondida em switchTestType ou será escondida se o input for inválido
-                    // e o cálculo não puder prosseguir para pace/speed.
-                    // A trainingTable será atualizada de qualquer forma.
-                    updateTrainingTable(); // Garante que a tabela de zonas de treinamento seja atualizada
-                    return; // Sai da função se o input for inválido para o cálculo de pace/speed
+                    updateTrainingTable();
+                    return;
                 }
                 timeInMinutes = 5;
-                baseSpeed = (inputValue / timeInMinutes) * 60; // km/h
+                baseSpeed = (inputValue / timeInMinutes) * 60;
             } else {
-                // Teste de 3km: input é tempo em MM:SS
                 timeInMinutes = parseTimeInput(inputValue);
                 if (isNaN(timeInMinutes) || timeInMinutes <= 0) {
                     flashInputError(input);
-                    updateTrainingTable(); // Garante que a tabela de zonas de treinamento seja atualizada
-                    return; // Sai da função se o input for inválido para o cálculo de pace/speed
+                    updateTrainingTable();
+                    return;
                 }
-                const distance = 3; // km fixo
-                baseSpeed = (distance / timeInMinutes) * 60; // km/h
+                const distance = 3;
+                baseSpeed = (distance / timeInMinutes) * 60;
             }
 
-            // Se chegamos aqui, o input é válido para calcular pace/speed
-            const basePaceMinutes = 60 / baseSpeed; // min/km
+            const basePaceMinutes = 60 / baseSpeed;
             const basePaceMin = Math.floor(basePaceMinutes);
             const basePaceSec = Math.round((basePaceMinutes - basePaceMin) * 60);
 
-            // Atualizar resumo
             document.getElementById('avgPace').textContent = `${basePaceMin}:${basePaceSec.toString().padStart(2, '0')}`;
             document.getElementById('avgSpeed').textContent = `${baseSpeed.toFixed(1)} km/h`;
 
-            // Definir zonas com base nos percentuais configurados (zoneConfig já está atualizado pelo switchTestType)
             const intensityZones = zoneConfig.map(config => ({
                 zone: `Z${config.zone} - ${config.effort}`,
                 minPercent: config.inferior / 100,
@@ -1033,30 +1239,28 @@
                 color: `zone-${config.zone}`
             }));
 
-            // Criar tabela de velocidade (mínimo primeiro, máximo depois)
             let speedHTML = '';
             intensityZones.forEach(zone => {
                 const minSpeed = baseSpeed * zone.minPercent;
                 const maxSpeed = baseSpeed * zone.maxPercent;
 
                 speedHTML += `
-                    <tr class="${zone.color}">
-                        <td class="zone-label">${zone.zone}</td>
-                        <td class="range-value">${minSpeed.toFixed(1)}</td>
-                        <td class="range-value">${maxSpeed.toFixed(1)}</td>
+                    <tr class="${zone.color} ${document.body.classList.contains('dark-mode') ? 'dark-mode' : ''}">
+                        <td class="zone-label ${document.body.classList.contains('dark-mode') ? 'dark-mode' : ''}">${zone.zone}</td>
+                        <td class="range-value ${document.body.classList.contains('dark-mode') ? 'dark-mode' : ''}">${minSpeed.toFixed(1)}</td>
+                        <td class="range-value ${document.body.classList.contains('dark-mode') ? 'dark-mode' : ''}">${maxSpeed.toFixed(1)}</td>
                     </tr>
                 `;
             });
             document.getElementById('speedTableBody').innerHTML = speedHTML;
 
-            // Criar tabela de pace (mínimo primeiro, máximo depois)
             let paceHTML = '';
             intensityZones.forEach(zone => {
                 const minSpeed = baseSpeed * zone.minPercent;
                 const maxSpeed = baseSpeed * zone.maxPercent;
                 
-                const minPaceTotal = 60 / maxSpeed; // Pace mais rápido (velocidade maior)
-                const maxPaceTotal = 60 / minSpeed; // Pace mais lento (velocidade menor)
+                const minPaceTotal = 60 / maxSpeed;
+                const maxPaceTotal = 60 / minSpeed;
                 
                 const minPaceMin = Math.floor(minPaceTotal);
                 const minPaceSec = Math.round((minPaceTotal - minPaceMin) * 60);
@@ -1064,45 +1268,40 @@
                 const maxPaceSec = Math.round((maxPaceTotal - maxPaceMin) * 60);
 
                 paceHTML += `
-                    <tr class="${zone.color}">
-                        <td class="zone-label">${zone.zone}</td>
-                        <td class="range-value">${minPaceMin}:${minPaceSec.toString().padStart(2, '0')}</td>
-                        <td class="range-value">${maxPaceMin}:${maxPaceSec.toString().padStart(2, '0')}</td>
+                    <tr class="${zone.color} ${document.body.classList.contains('dark-mode') ? 'dark-mode' : ''}">
+                        <td class="zone-label ${document.body.classList.contains('dark-mode') ? 'dark-mode' : ''}">${zone.zone}</td>
+                        <td class="range-value ${document.body.classList.contains('dark-mode') ? 'dark-mode' : ''}">${minPaceMin}:${minPaceSec.toString().padStart(2, '0')}</td>
+                        <td class="range-value ${document.body.classList.contains('dark-mode') ? 'dark-mode' : ''}">${maxPaceMin}:${maxPaceSec.toString().padStart(2, '0')}</td>
                     </tr>
                 `;
             });
             document.getElementById('paceTableBody').innerHTML = paceHTML;
 
-            // Criar tabela de zonas de treinamento (esta parte é sempre atualizada)
             updateTrainingTable();
 
-            // Mostrar resultados com animação (apenas se o cálculo de pace/speed foi bem-sucedido)
             const resultsSection = document.getElementById('resultsSection');
             resultsSection.style.display = 'block';
             resultsSection.classList.add('fade-in');
             
-            // Scroll suave para os resultados
             setTimeout(() => {
                 resultsSection.scrollIntoView({ behavior: 'smooth' });
             }, 200);
         }
 
-        // Nova função para atualizar apenas a tabela de zonas de treinamento
         function updateTrainingTable() {
             let trainingHTML = '';
             zoneConfig.forEach(config => {
                 trainingHTML += `
-                    <tr class="zone-training-${config.zone}">
-                        <td class="zone-number">${config.zone}</td>
-                        <td>${config.inferior}%</td>
-                        <td>${config.superior}%</td>
-                        <td>${config.effort}</td>
+                    <tr class="zone-training-${config.zone} ${document.body.classList.contains('dark-mode') ? 'dark-mode' : ''}">
+                        <td class="zone-number ${document.body.classList.contains('dark-mode') ? 'dark-mode' : ''}">${config.zone}</td>
+                        <td class="${document.body.classList.contains('dark-mode') ? 'dark-mode' : ''}">${config.inferior}%</td>
+                        <td class="${document.body.classList.contains('dark-mode') ? 'dark-mode' : ''}">${config.superior}%</td>
+                        <td class="${document.body.classList.contains('dark-mode') ? 'dark-mode' : ''}">${config.effort}</td>
                     </tr>
                 `;
             });
             document.getElementById('trainingTable').innerHTML = trainingHTML;
         }
-
 
         function showSpeed() {
             document.getElementById('speedTable').style.display = 'block';
@@ -1118,7 +1317,6 @@
             document.getElementById('speedBtn').classList.remove('active');
         }
 
-        // Funções do modal de configuração
         function openConfigModal() {
             const modal = document.getElementById('configModal');
             const inputsContainer = document.getElementById('configInputs');
@@ -1126,16 +1324,16 @@
             let inputsHTML = '';
             zoneConfig.forEach(config => {
                 inputsHTML += `
-                    <div class="config-zone-card zone-training-${config.zone}">
-                        <h4>Zona ${config.zone} - ${config.effort}</h4>
+                    <div class="config-zone-card zone-training-${config.zone} ${document.body.classList.contains('dark-mode') ? 'dark-mode' : ''}">
+                        <h4 ${document.body.classList.contains('dark-mode') ? 'class="dark-mode"' : ''}>Zona ${config.zone} - ${config.effort}</h4>
                         <div style="display: flex; gap: 10px; margin-top: 10px;">
                             <div style="flex: 1;">
-                                <label>Inferior (%):</label>
-                                <input type="number" class="config-input" id="inferior_${config.zone}" value="${config.inferior}" min="1" max="105">
+                                <label ${document.body.classList.contains('dark-mode') ? 'class="dark-mode"' : ''}>Inferior (%):</label>
+                                <input type="number" class="config-input ${document.body.classList.contains('dark-mode') ? 'dark-mode' : ''}" id="inferior_${config.zone}" value="${config.inferior}" min="1" max="105">
                             </div>
                             <div style="flex: 1;">
-                                <label>Superior (%):</label>
-                                <input type="number" class="config-input" id="superior_${config.zone}" value="${config.superior}" min="1" max="105">
+                                <label ${document.body.classList.contains('dark-mode') ? 'class="dark-mode"' : ''}>Superior (%):</label>
+                                <input type="number" class="config-input ${document.body.classList.contains('dark-mode') ? 'dark-mode' : ''}" id="superior_${config.zone}" value="${config.superior}" min="1" max="105">
                             </div>
                         </div>
                     </div>
@@ -1168,15 +1366,15 @@
                 
                 if (isNaN(inferior) || isNaN(superior) || inferior <= 0 || superior <= 0) {
                     isValid = false;
-                    flashInputError(inferiorInput); // Pisca o input inválido
-                    flashInputError(superiorInput); // Pisca o input inválido
+                    flashInputError(inferiorInput);
+                    flashInputError(superiorInput);
                     return;
                 }
 
                 if (inferior >= superior) {
                     isValid = false;
-                    flashInputError(inferiorInput); // Pisca o input inválido
-                    flashInputError(superiorInput); // Pisca o input inválido
+                    flashInputError(inferiorInput);
+                    flashInputError(superiorInput);
                     return;
                 }
                 
@@ -1184,20 +1382,18 @@
             });
 
             if (isValid) {
-                zoneConfig = newZoneConfig; // Atualiza a configuração global
+                zoneConfig = newZoneConfig;
                 closeConfigModal();
-                calculateZones(); // Recalcular com as novas configurações
+                calculateZones();
             }
         }
 
-        // Funções da calculadora multifuncional
         function switchCalcMode(mode) {
             const paceBtn = document.getElementById('calcPaceBtn');
             const timeBtn = document.getElementById('calcTimeBtn');
             const paceMode = document.getElementById('paceCalcMode');
             const timeMode = document.getElementById('timeCalcMode');
             
-            // Remove os event listeners de input e reseta o alinhamento
             document.getElementById('calcTime').oninput = null;
             document.getElementById('calcTime').style.textAlign = 'center';
             document.getElementById('calcPaceTime').oninput = null;
@@ -1209,10 +1405,9 @@
                 paceMode.style.display = 'block';
                 timeMode.style.display = 'none';
                 
-                // Configura o input de tempo para HH:MM:SS
                 const calcTimeInput = document.getElementById('calcTime');
-                calcTimeInput.value = '00:00:00'; // Valor inicial
-                calcTimeInput.style.textAlign = 'center'; // Centraliza o texto
+                calcTimeInput.value = '00:00:00';
+                calcTimeInput.style.textAlign = 'center';
                 calcTimeInput.oninput = () => formatTimeInputRightToLeft(calcTimeInput, 'HH:MM:SS');
             } else {
                 timeBtn.classList.add('active');
@@ -1220,10 +1415,9 @@
                 timeMode.style.display = 'block';
                 paceMode.style.display = 'none';
 
-                // Configura o input de pace para MM:SS
                 const calcPaceTimeInput = document.getElementById('calcPaceTime');
-                calcPaceTimeInput.value = '00:00'; // Valor inicial
-                calcPaceTimeInput.style.textAlign = 'center'; // Centraliza o texto
+                calcPaceTimeInput.value = '00:00';
+                calcPaceTimeInput.style.textAlign = 'center';
                 calcPaceTimeInput.oninput = () => formatTimeInputRightToLeft(calcPaceTimeInput, 'MM:SS');
             }
             
@@ -1253,7 +1447,7 @@
                 return;
             }
             
-            const totalMinutes = parseTimeInput(timeStr); // Usa a função aprimorada
+            const totalMinutes = parseTimeInput(timeStr);
             if (isNaN(totalMinutes) || totalMinutes <= 0) {
                 flashInputError(timeInput);
                 return;
@@ -1278,7 +1472,7 @@
                 return;
             }
             
-            const paceMinutes = parseTimeInput(paceStr); // Usa a função aprimorada
+            const paceMinutes = parseTimeInput(paceStr);
             if (isNaN(paceMinutes) || paceMinutes <= 0) {
                 flashInputError(paceInput);
                 return;
@@ -1290,19 +1484,16 @@
             document.getElementById('resultPace').textContent = formatTime(totalMinutes);
             document.getElementById('resultSpeed').textContent = `${speed.toFixed(1)} km/h`;
             
-            // Alterar labels para mostrar tempo total
             document.querySelector('#calcResults .calc-result-card:first-child .calc-result-label').textContent = 'Tempo Total';
             document.getElementById('calcResults').style.display = 'flex';
         }
 
-        // Permitir cálculo ao pressionar Enter
         document.getElementById('distance').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 calculateZones();
             }
         });
 
-        // Fechar modal ao clicar fora
         window.onclick = function(event) {
             const modal = document.getElementById('configModal');
             if (event.target == modal) {
@@ -1310,11 +1501,133 @@
             }
         }
 
-        // Inicialização
-        // Garante que o input de distância comece como 'number' para o teste de 5min
-        document.getElementById('distance').type = 'number'; 
-        document.getElementById('distance').value = '1.00';
-        calculateZones(); // Chama calculateZones na inicialização para preencher a tabela de zonas
+        // --- Funcionalidade de Modo Escuro ---
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+
+        // Função para aplicar/remover classes de modo escuro
+        function applyDarkModeClasses(isDarkMode) {
+            const elementsToToggle = [
+                { id: 'mainContainer', class: 'container' },
+                { id: 'mainHeader', class: 'header' },
+                { id: 'mainMotto', class: 'motto' },
+                { id: 'testTypeContainer', class: 'test-type-container' },
+                { id: 'inputSection', class: 'input-section' },
+                { id: 'inputLabel', class: 'input-group label' },
+                { id: 'distance', class: 'input-group input' },
+                { id: 'summaryCard', class: 'summary-card' },
+                { id: 'speedTableContainer', class: 'table-container' },
+                { id: 'speedTableHeader', class: 'table-header' },
+                { id: 'trainingTableContainer', class: 'table-container' },
+                { id: 'trainingTableHeader', class: 'table-header' },
+                { id: 'calculatorSection', class: 'calculator-section' },
+                { id: 'calculatorHeader', class: 'calculator-header' },
+                { id: 'calcToggleContainer', class: 'calc-toggle-container' },
+                { id: 'calcDistanceLabel', class: 'calc-input-group label' },
+                { id: 'calcDistance', class: 'calc-input' },
+                { id: 'calcTimeLabel', class: 'calc-input-group label' },
+                { id: 'calcTime', class: 'calc-input' },
+                { id: 'calcDistanceTimeLabel', class: 'calc-input-group label' },
+                { id: 'calcDistanceTime', class: 'calc-input' },
+                { id: 'calcPaceTimeLabel', class: 'calc-input-group label' },
+                { id: 'calcPaceTime', class: 'calc-input' },
+                { id: 'resultPaceCard', class: 'calc-result-card' },
+                { id: 'resultSpeedCard', class: 'calc-result-card' },
+                { id: 'mainFooter', class: 'footer' },
+                { id: 'configModalContent', class: 'modal-content' },
+                { id: 'configModalHeader', class: 'modal-header' }
+            ];
+
+            if (isDarkMode) {
+                body.classList.add('dark-mode');
+                darkModeToggle.textContent = 'Modo Claro';
+            } else {
+                body.classList.remove('dark-mode');
+                darkModeToggle.textContent = 'Modo Escuro';
+            }
+
+            elementsToToggle.forEach(item => {
+                const element = document.getElementById(item.id);
+                if (element) {
+                    if (isDarkMode) {
+                        element.classList.add('dark-mode');
+                    } else {
+                        element.classList.remove('dark-mode');
+                    }
+                }
+            });
+
+            // Lidar com elementos gerados dinamicamente ou com múltiplos seletores
+            document.querySelectorAll('.test-type-btn:not(.active)').forEach(el => {
+                if (isDarkMode) el.classList.add('dark-mode');
+                else el.classList.remove('dark-mode');
+            });
+            document.querySelectorAll('.toggle-btn:not(.active)').forEach(el => {
+                if (isDarkMode) el.classList.add('dark-mode');
+                else el.classList.remove('dark-mode');
+            });
+            document.querySelectorAll('.calc-toggle-btn:not(.active)').forEach(el => {
+                if (isDarkMode) el.classList.add('dark-mode');
+                else el.classList.remove('dark-mode');
+            });
+            document.querySelectorAll('th').forEach(el => {
+                if (isDarkMode) el.classList.add('dark-mode');
+                else el.classList.remove('dark-mode');
+            });
+            document.querySelectorAll('td').forEach(el => {
+                if (isDarkMode) el.classList.add('dark-mode');
+                else el.classList.remove('dark-mode');
+            });
+            document.querySelectorAll('.zone-label').forEach(el => {
+                if (isDarkMode) el.classList.add('dark-mode');
+                else el.classList.remove('dark-mode');
+            });
+            document.querySelectorAll('.calc-result-label').forEach(el => {
+                if (isDarkMode) el.classList.add('dark-mode');
+                else el.classList.remove('dark-mode');
+            });
+            document.querySelectorAll('.config-zone-card').forEach(el => {
+                if (isDarkMode) el.classList.add('dark-mode');
+                else el.classList.remove('dark-mode');
+            });
+            document.querySelectorAll('.config-zone-card h4').forEach(el => {
+                if (isDarkMode) el.classList.add('dark-mode');
+                else el.classList.remove('dark-mode');
+            });
+            document.querySelectorAll('.config-input').forEach(el => {
+                if (isDarkMode) el.classList.add('dark-mode');
+                else el.classList.remove('dark-mode');
+            });
+            document.querySelectorAll('.input-group small').forEach(el => {
+                if (isDarkMode) el.style.color = '#bbb';
+                else el.style.color = '#666';
+            });
+
+            // Re-renderizar tabelas para aplicar estilos de linha
+            calculateZones();
+        }
+
+        // Event listener para o botão de alternar modo
+        darkModeToggle.addEventListener('click', () => {
+            const isDarkMode = body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', !isDarkMode);
+            applyDarkModeClasses(!isDarkMode);
+        });
+
+        // Verificar preferência do usuário ao carregar a página
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedDarkMode = localStorage.getItem('darkMode');
+            if (savedDarkMode === 'true') {
+                applyDarkModeClasses(true);
+            } else {
+                applyDarkModeClasses(false); // Garante que o modo claro seja aplicado se não houver preferência ou for 'false'
+            }
+            
+            // Inicialização original
+            document.getElementById('distance').type = 'number'; 
+            document.getElementById('distance').value = '1.00';
+            calculateZones();
+        });
     </script>
 </body>
 </html>
