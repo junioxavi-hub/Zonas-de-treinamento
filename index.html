@@ -1055,7 +1055,7 @@
          * Converte uma string de tempo (HH:MM:SS ou MM:SS) para minutos decimais.
          * Realiza validação rigorosa para segundos (0-59) e minutos (0-59 se HH:MM:SS).
          * @param {string} timeStr - A string de tempo a ser parseada.
-         * @returns {number} O tempo em minutos decimais, ou NaN se o formato for inválido.
+         * @returns {number} O tempo em minutos decimais, ou NaN se o formato for inválido ou os valores estiverem fora do range.
          */
         function parseTimeInput(timeStr) {
             const parts = timeStr.split(':');
@@ -1065,6 +1065,7 @@
                 const minutes = parseInt(parts[0]);
                 const seconds = parseInt(parts[1]);
 
+                // Validação rigorosa: segundos devem ser entre 0 e 59, minutos >= 0
                 if (!isNaN(minutes) && !isNaN(seconds) && seconds >= 0 && seconds < 60 && minutes >= 0) {
                     totalMinutes = minutes + (seconds / 60);
                 }
@@ -1073,6 +1074,7 @@
                 const minutes = parseInt(parts[1]);
                 const seconds = parseInt(parts[2]);
 
+                // Validação rigorosa: segundos e minutos devem ser entre 0 e 59, horas >= 0
                 if (!isNaN(hours) && !isNaN(minutes) && !isNaN(seconds) && 
                     seconds >= 0 && seconds < 60 && minutes >= 0 && minutes < 60 && hours >= 0) {
                     totalMinutes = (hours * 60) + minutes + (seconds / 60);
