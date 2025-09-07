@@ -30,7 +30,7 @@
 
         .header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 15px; /* Ajustado para dar espaço à frase */
             padding: 20px 0;
             background: linear-gradient(45deg, #4CAF50, #45a049);
             border-radius: 15px;
@@ -42,6 +42,15 @@
             font-size: 1.4em;
             margin-bottom: 5px;
             font-weight: 600;
+        }
+
+        /* Estilo para a frase motivacional */
+        .motto {
+            text-align: center;
+            font-style: italic;
+            color: #555;
+            margin-bottom: 25px; /* Espaço entre a frase e os botões */
+            font-size: 0.95em;
         }
 
         .test-type-container {
@@ -111,7 +120,7 @@
             border-radius: 10px;
             font-size: 1.3em;
             font-weight: bold;
-            text-align: center;
+            text-align: center; /* Centralizado por padrão */
             transition: all 0.3s ease;
             background: #f8fff8;
         }
@@ -121,6 +130,36 @@
             border-color: #45a049;
             background: white;
             box-shadow: 0 0 15px rgba(76, 175, 80, 0.3);
+        }
+
+        /* Novo estilo para feedback de erro */
+        .input-error-flash {
+            animation: flashRedBorder 0.6s ease-in-out;
+        }
+
+        @keyframes flashRedBorder {
+            0% { border-color: #4CAF50; }
+            50% { border-color: #ff4757; box-shadow: 0 0 15px rgba(255, 71, 87, 0.5); }
+            100% { border-color: #4CAF50; }
+        }
+
+        /* Estilo para o wrapper de input de tempo/pace (sem separador fixo) */
+        .time-input-wrapper {
+            position: relative;
+            display: block; /* Alterado para block */
+            width: 100%;
+        }
+
+        .time-input-wrapper input {
+            width: 100%;
+            padding: 15px;
+            border: 3px solid #4CAF50;
+            border-radius: 10px;
+            font-size: 1.3em;
+            font-weight: bold;
+            text-align: center; /* Centralizado */
+            transition: all 0.3s ease;
+            background: #f8fff8;
         }
 
         .calculate-btn {
@@ -367,6 +406,34 @@
             font-size: 1em;
         }
 
+        /* Estilos para o modal de configuração */
+        .config-zone-card {
+            margin-bottom: 15px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .config-zone-card h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        /* Cores para os cards de configuração das zonas */
+        .config-zone-card.zone-training-1 { background: rgba(173, 216, 230, 0.1); border-color: rgba(173, 216, 230, 0.5); }
+        .config-zone-card.zone-training-1 h4 { color: #4682B4; } /* SteelBlue */
+        .config-zone-card.zone-training-2 { background: rgba(135, 206, 235, 0.1); border-color: rgba(135, 206, 235, 0.5); }
+        .config-zone-card.zone-training-2 h4 { color: #1E90FF; } /* DodgerBlue */
+        .config-zone-card.zone-training-3 { background: rgba(255, 215, 0, 0.1); border-color: rgba(255, 215, 0, 0.5); }
+        .config-zone-card.zone-training-3 h4 { color: #DAA520; } /* Goldenrod */
+        .config-zone-card.zone-training-4 { background: rgba(255, 165, 0, 0.1); border-color: rgba(255, 165, 0, 0.5); }
+        .config-zone-card.zone-training-4 h4 { color: #FF8C00; } /* DarkOrange */
+        .config-zone-card.zone-training-5 { background: rgba(255, 99, 71, 0.1); border-color: rgba(255, 99, 71, 0.5); }
+        .config-zone-card.zone-training-5 h4 { color: #FF4500; } /* OrangeRed */
+
+
         .save-config-btn {
             width: 100%;
             padding: 15px;
@@ -569,6 +636,8 @@
             <h1>Calculadora de Zonas de Treinamento</h1>
         </div>
 
+        <p class="motto"><i>Para evoluir não basta apenas correr, deve-se treinar. Faça o teste correndo no seu limite e descubra suas zonas ideias</i></p>
+
         <!-- Botões para alternar entre tipos de teste -->
         <div class="test-type-container">
             <button class="test-type-btn active" id="test5min" onclick="switchTestType('5min')">Teste de 5 Minutos</button>
@@ -578,8 +647,8 @@
         <div class="input-section">
             <div class="input-group">
                 <label for="distance" id="inputLabel">Realize o teste acima e insira a distância aqui!</label>
-                <div class="distance-input-container">
-                    <input type="number" id="distance" placeholder="1,00" step="0.01" min="0.1" max="50">
+                <div class="distance-input-container" id="distance-wrapper">
+                    <input type="text" id="distance" placeholder="1,00" step="0.01" min="0.1" max="50">
                 </div>
                 <small style="color: #666; font-size: 0.8em; margin-top: 5px; display: block;" id="unitLabel">km</small>
             </div>
@@ -684,8 +753,10 @@
                         <input type="number" id="calcDistance" class="calc-input" placeholder="5" step="0.1">
                     </div>
                     <div class="calc-input-group">
-                        <label for="calcTime">Tempo (HH:MM:SS ou MM:SS)</label>
-                        <input type="text" id="calcTime" class="calc-input" placeholder="30:00">
+                        <label for="calcTime">Tempo (HH:MM:SS)</label>
+                        <div class="time-input-wrapper">
+                            <input type="text" id="calcTime" class="calc-input" value="00:00:00">
+                        </div>
                     </div>
                 </div>
                 <button class="calc-btn" onclick="calculatePace()">Calcular Pace</button>
@@ -699,7 +770,9 @@
                     </div>
                     <div class="calc-input-group">
                         <label for="calcPaceTime">Pace (MM:SS)</label>
-                        <input type="text" id="calcPaceTime" class="calc-input" placeholder="6:00">
+                        <div class="time-input-wrapper">
+                            <input type="text" id="calcPaceTime" class="calc-input" value="00:00">
+                        </div>
                     </div>
                 </div>
                 <button class="calc-btn" onclick="calculateTime()">Calcular Tempo</button>
@@ -740,14 +813,129 @@
         // Variáveis globais
         let currentTestType = '5min';
         
-        // Configurações padrão das zonas
-        let zoneConfig = [
+        // Configurações padrão das zonas para Teste de 5 minutos
+        const defaultZoneConfig5min = [
             { zone: 1, inferior: 50, superior: 60, effort: 'Leve' },
             { zone: 2, inferior: 61, superior: 70, effort: 'Moderado' },
             { zone: 3, inferior: 71, superior: 80, effort: 'Intenso' },
             { zone: 4, inferior: 81, superior: 90, effort: 'Muito Intenso' },
             { zone: 5, inferior: 91, superior: 100, effort: 'Máximo Esforço' }
         ];
+
+        // Configurações das zonas para Teste de 3km
+        const defaultZoneConfig3km = [
+            { zone: 1, inferior: 60, superior: 70, effort: 'Leve' },
+            { zone: 2, inferior: 71, superior: 80, effort: 'Moderado' },
+            { zone: 3, inferior: 81, superior: 90, effort: 'Intenso' },
+            { zone: 4, inferior: 91, superior: 100, effort: 'Muito Intenso' },
+            { zone: 5, inferior: 101, superior: 105, effort: 'Máximo Esforço' }
+        ];
+
+        let zoneConfig = [...defaultZoneConfig5min]; // Inicia com a configuração de 5min
+
+        /**
+         * Converte uma string de tempo (HH:MM:SS ou MM:SS) para minutos decimais.
+         * Realiza validação rigorosa para segundos (0-59) e minutos (0-59 se HH:MM:SS).
+         * @param {string} timeStr - A string de tempo a ser parseada.
+         * @returns {number} O tempo em minutos decimais, ou NaN se o formato for inválido.
+         */
+        function parseTimeInput(timeStr) {
+            const parts = timeStr.split(':');
+            let totalMinutes = NaN;
+
+            if (parts.length === 2) { // MM:SS
+                const minutes = parseInt(parts[0]);
+                const seconds = parseInt(parts[1]);
+
+                if (!isNaN(minutes) && !isNaN(seconds) && seconds >= 0 && seconds < 60 && minutes >= 0) {
+                    totalMinutes = minutes + (seconds / 60);
+                }
+            } else if (parts.length === 3) { // HH:MM:SS
+                const hours = parseInt(parts[0]);
+                const minutes = parseInt(parts[1]);
+                const seconds = parseInt(parts[2]);
+
+                if (!isNaN(hours) && !isNaN(minutes) && !isNaN(seconds) && 
+                    seconds >= 0 && seconds < 60 && minutes >= 0 && minutes < 60 && hours >= 0) {
+                    totalMinutes = (hours * 60) + minutes + (seconds / 60);
+                }
+            }
+            return totalMinutes;
+        }
+
+        /**
+         * Aplica um efeito de flash vermelho na borda de um elemento input.
+         * @param {HTMLElement} inputElement - O elemento input a ser animado.
+         */
+        function flashInputError(inputElement) {
+            inputElement.classList.add('input-error-flash');
+            setTimeout(() => {
+                inputElement.classList.remove('input-error-flash');
+            }, 600); // Duração da animação
+            inputElement.focus();
+        }
+
+        /**
+         * Formata o valor do input de tempo/pace com digitação da direita para a esquerda.
+         * @param {HTMLInputElement} input - O elemento input.
+         * @param {string} format - O formato esperado ('MM:SS' ou 'HH:MM:SS').
+         */
+        function formatTimeInputRightToLeft(input, format) {
+            let rawValue = input.value.replace(/\D/g, ''); // Remove tudo que não é dígito
+
+            let hours = '00', minutes = '00', seconds = '00';
+
+            if (format === 'MM:SS') {
+                // Limita a 4 dígitos (MMSS)
+                if (rawValue.length > 4) rawValue = rawValue.substring(rawValue.length - 4);
+                
+                // Preenche da direita para a esquerda
+                if (rawValue.length >= 2) {
+                    seconds = rawValue.substring(rawValue.length - 2);
+                    rawValue = rawValue.substring(0, rawValue.length - 2);
+                } else {
+                    seconds = rawValue.padStart(2, '0');
+                    rawValue = '';
+                }
+                
+                if (rawValue.length >= 2) {
+                    minutes = rawValue.substring(rawValue.length - 2);
+                } else {
+                    minutes = rawValue.padStart(2, '0');
+                }
+                
+                input.value = `${minutes}:${seconds}`;
+
+            } else if (format === 'HH:MM:SS') {
+                // Limita a 6 dígitos (HHMMSS)
+                if (rawValue.length > 6) rawValue = rawValue.substring(rawValue.length - 6);
+
+                // Preenche da direita para a esquerda
+                if (rawValue.length >= 2) {
+                    seconds = rawValue.substring(rawValue.length - 2);
+                    rawValue = rawValue.substring(0, rawValue.length - 2);
+                } else {
+                    seconds = rawValue.padStart(2, '0');
+                    rawValue = '';
+                }
+
+                if (rawValue.length >= 2) {
+                    minutes = rawValue.substring(rawValue.length - 2);
+                    rawValue = rawValue.substring(0, rawValue.length - 2);
+                } else {
+                    minutes = rawValue.padStart(2, '0');
+                    rawValue = '';
+                }
+
+                if (rawValue.length >= 2) {
+                    hours = rawValue.substring(rawValue.length - 2);
+                } else {
+                    hours = rawValue.padStart(2, '0');
+                }
+                
+                input.value = `${hours}:${minutes}:${seconds}`;
+            }
+        }
 
         function switchTestType(testType) {
             const btn5min = document.getElementById('test5min');
@@ -762,46 +950,58 @@
             if (testType === '5min') {
                 btn5min.classList.add('active');
                 btn3km.classList.remove('active');
-                inputLabel.textContent = 'Realize o teste acima e insira a distância aqui!';
+                inputLabel.textContent = 'Insira a distância aqui!';
                 unitLabel.textContent = 'km';
                 distanceInput.placeholder = '1,00';
                 distanceInput.value = '1.00';
+                distanceInput.type = 'number'; // Volta para number para distância
                 distanceInput.max = '10';
+                distanceInput.style.textAlign = 'center'; // Centraliza o texto
+                distanceInput.oninput = null; // Remove o handler de input
                 trainingTableTitle.textContent = 'Zonas de Treinamento - Teste de 5 minutos';
+                zoneConfig = [...defaultZoneConfig5min]; // Carrega config de 5min
+                // REMOVIDO: window.scrollTo(0, 0); // Rola para o topo
             } else {
                 btn3km.classList.add('active');
                 btn5min.classList.remove('active');
-                inputLabel.textContent = 'Realize o teste acima e insira o tempo aqui!';
-                unitLabel.textContent = 'minutos';
-                distanceInput.placeholder = '15,00';
-                distanceInput.value = '15.00';
-                distanceInput.max = '50';
+                inputLabel.textContent = 'Insira o tempo aqui!';
+                unitLabel.textContent = 'MM:SS'; // Altera a unidade para MM:SS
+                distanceInput.placeholder = '00:00'; // Exemplo de formato
+                distanceInput.value = '00:00'; // Valor inicial no formato MM:SS
+                distanceInput.type = 'text'; // Muda para text para aceitar MM:SS
+                distanceInput.max = ''; // Remove max para tempo
+                distanceInput.style.textAlign = 'center'; // Centraliza o texto
+                distanceInput.oninput = () => formatTimeInputRightToLeft(distanceInput, 'MM:SS'); // Adiciona o handler
                 trainingTableTitle.textContent = 'Zonas de Treinamento - Teste de 3 km';
+                zoneConfig = [...defaultZoneConfig3km]; // Carrega config de 3km
             }
             
-            // Limpar resultados
+            // Limpar resultados e recalcular com a nova configuração
             document.getElementById('resultsSection').style.display = 'none';
+            calculateZones(); // Recalcula para atualizar a tabela de zonas de treinamento
         }
 
         function calculateZones() {
             const input = document.getElementById('distance');
-            const inputValue = parseFloat(input.value.replace(',', '.'));
-            
-            if (!inputValue || inputValue <= 0) {
-                alert('Por favor, insira um valor válido!');
-                return;
-            }
-
-            let baseSpeed, basePaceMinutes;
+            let inputValue = input.value;
+            let timeInMinutes;
+            let baseSpeed;
 
             if (currentTestType === '5min') {
-                // Teste de 5 minutos: input é distância
-                const distance = inputValue;
-                const timeInMinutes = 5;
-                baseSpeed = (distance / timeInMinutes) * 60; // km/h
+                inputValue = parseFloat(inputValue.replace(',', '.'));
+                if (isNaN(inputValue) || inputValue <= 0) {
+                    flashInputError(input);
+                    return;
+                }
+                timeInMinutes = 5;
+                baseSpeed = (inputValue / timeInMinutes) * 60; // km/h
             } else {
-                // Teste de 3km: input é tempo em minutos
-                const timeInMinutes = inputValue;
+                // Teste de 3km: input é tempo em MM:SS
+                timeInMinutes = parseTimeInput(inputValue);
+                if (isNaN(timeInMinutes) || timeInMinutes <= 0) {
+                    flashInputError(input);
+                    return;
+                }
                 const distance = 3; // km fixo
                 baseSpeed = (distance / timeInMinutes) * 60; // km/h
             }
@@ -814,7 +1014,7 @@
             document.getElementById('avgPace').textContent = `${basePaceMin}:${basePaceSec.toString().padStart(2, '0')}`;
             document.getElementById('avgSpeed').textContent = `${baseSpeed.toFixed(1)} km/h`;
 
-            // Definir zonas com base nos percentuais configurados
+            // Definir zonas com base nos percentuais configurados (zoneConfig já está atualizado pelo switchTestType)
             const intensityZones = zoneConfig.map(config => ({
                 zone: `Z${config.zone} - ${config.effort}`,
                 minPercent: config.inferior / 100,
@@ -909,16 +1109,16 @@
             let inputsHTML = '';
             zoneConfig.forEach(config => {
                 inputsHTML += `
-                    <div style="margin-bottom: 15px; padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                    <div class="config-zone-card zone-training-${config.zone}">
                         <h4>Zona ${config.zone} - ${config.effort}</h4>
                         <div style="display: flex; gap: 10px; margin-top: 10px;">
                             <div style="flex: 1;">
                                 <label>Inferior (%):</label>
-                                <input type="number" class="config-input" id="inferior_${config.zone}" value="${config.inferior}" min="1" max="100">
+                                <input type="number" class="config-input" id="inferior_${config.zone}" value="${config.inferior}" min="1" max="105">
                             </div>
                             <div style="flex: 1;">
                                 <label>Superior (%):</label>
-                                <input type="number" class="config-input" id="superior_${config.zone}" value="${config.superior}" min="1" max="100">
+                                <input type="number" class="config-input" id="superior_${config.zone}" value="${config.superior}" min="1" max="105">
                             </div>
                         </div>
                     </div>
@@ -934,21 +1134,43 @@
         }
 
         function saveConfig() {
+            let newZoneConfig = [];
+            let isValid = true;
+
             zoneConfig.forEach(config => {
-                const inferior = parseInt(document.getElementById(`inferior_${config.zone}`).value);
-                const superior = parseInt(document.getElementById(`superior_${config.zone}`).value);
+                const inferiorInput = document.getElementById(`inferior_${config.zone}`);
+                const superiorInput = document.getElementById(`superior_${config.zone}`);
+
+                if (!inferiorInput || !superiorInput) {
+                    isValid = false;
+                    return;
+                }
+
+                const inferior = parseInt(inferiorInput.value);
+                const superior = parseInt(superiorInput.value);
                 
+                if (isNaN(inferior) || isNaN(superior) || inferior <= 0 || superior <= 0) {
+                    isValid = false;
+                    flashInputError(inferiorInput); // Pisca o input inválido
+                    flashInputError(superiorInput); // Pisca o input inválido
+                    return;
+                }
+
                 if (inferior >= superior) {
-                    alert(`Zona ${config.zone}: O valor inferior deve ser menor que o superior`);
+                    isValid = false;
+                    flashInputError(inferiorInput); // Pisca o input inválido
+                    flashInputError(superiorInput); // Pisca o input inválido
                     return;
                 }
                 
-                config.inferior = inferior;
-                config.superior = superior;
+                newZoneConfig.push({ ...config, inferior: inferior, superior: superior });
             });
-            
-            closeConfigModal();
-            calculateZones(); // Recalcular com as novas configurações
+
+            if (isValid) {
+                zoneConfig = newZoneConfig; // Atualiza a configuração global
+                closeConfigModal();
+                calculateZones(); // Recalcular com as novas configurações
+            }
         }
 
         // Funções da calculadora multifuncional
@@ -958,31 +1180,37 @@
             const paceMode = document.getElementById('paceCalcMode');
             const timeMode = document.getElementById('timeCalcMode');
             
+            // Remove os event listeners de input e reseta o alinhamento
+            document.getElementById('calcTime').oninput = null;
+            document.getElementById('calcTime').style.textAlign = 'center';
+            document.getElementById('calcPaceTime').oninput = null;
+            document.getElementById('calcPaceTime').style.textAlign = 'center';
+
             if (mode === 'pace') {
                 paceBtn.classList.add('active');
                 timeBtn.classList.remove('active');
                 paceMode.style.display = 'block';
                 timeMode.style.display = 'none';
+                
+                // Configura o input de tempo para HH:MM:SS
+                const calcTimeInput = document.getElementById('calcTime');
+                calcTimeInput.value = '00:00:00'; // Valor inicial
+                calcTimeInput.style.textAlign = 'center'; // Centraliza o texto
+                calcTimeInput.oninput = () => formatTimeInputRightToLeft(calcTimeInput, 'HH:MM:SS');
             } else {
                 timeBtn.classList.add('active');
                 paceBtn.classList.remove('active');
                 timeMode.style.display = 'block';
                 paceMode.style.display = 'none';
+
+                // Configura o input de pace para MM:SS
+                const calcPaceTimeInput = document.getElementById('calcPaceTime');
+                calcPaceTimeInput.value = '00:00'; // Valor inicial
+                calcPaceTimeInput.style.textAlign = 'center'; // Centraliza o texto
+                calcPaceTimeInput.oninput = () => formatTimeInputRightToLeft(calcPaceTimeInput, 'MM:SS');
             }
             
             document.getElementById('calcResults').style.display = 'none';
-        }
-
-        function parseTime(timeStr) {
-            const parts = timeStr.split(':');
-            if (parts.length === 2) {
-                // MM:SS
-                return parseInt(parts[0]) + parseInt(parts[1]) / 60;
-            } else if (parts.length === 3) {
-                // HH:MM:SS
-                return parseInt(parts[0]) * 60 + parseInt(parts[1]) + parseInt(parts[2]) / 60;
-            }
-            return 0;
         }
 
         function formatTime(totalMinutes) {
@@ -998,15 +1226,22 @@
         }
 
         function calculatePace() {
-            const distance = parseFloat(document.getElementById('calcDistance').value);
-            const timeStr = document.getElementById('calcTime').value;
+            const distanceInput = document.getElementById('calcDistance');
+            const timeInput = document.getElementById('calcTime');
+            const distance = parseFloat(distanceInput.value);
+            const timeStr = timeInput.value;
             
-            if (!distance || !timeStr) {
-                alert('Preencha todos os campos!');
+            if (isNaN(distance) || distance <= 0) {
+                flashInputError(distanceInput);
                 return;
             }
             
-            const totalMinutes = parseTime(timeStr);
+            const totalMinutes = parseTimeInput(timeStr); // Usa a função aprimorada
+            if (isNaN(totalMinutes) || totalMinutes <= 0) {
+                flashInputError(timeInput);
+                return;
+            }
+
             const paceMinutes = totalMinutes / distance;
             const speed = 60 / paceMinutes;
             
@@ -1016,15 +1251,22 @@
         }
 
         function calculateTime() {
-            const distance = parseFloat(document.getElementById('calcDistanceTime').value);
-            const paceStr = document.getElementById('calcPaceTime').value;
+            const distanceInput = document.getElementById('calcDistanceTime');
+            const paceInput = document.getElementById('calcPaceTime');
+            const distance = parseFloat(distanceInput.value);
+            const paceStr = paceInput.value;
             
-            if (!distance || !paceStr) {
-                alert('Preencha todos os campos!');
+            if (isNaN(distance) || distance <= 0) {
+                flashInputError(distanceInput);
                 return;
             }
             
-            const paceMinutes = parseTime(paceStr);
+            const paceMinutes = parseTimeInput(paceStr); // Usa a função aprimorada
+            if (isNaN(paceMinutes) || paceMinutes <= 0) {
+                flashInputError(paceInput);
+                return;
+            }
+
             const totalMinutes = paceMinutes * distance;
             const speed = 60 / paceMinutes;
             
@@ -1052,9 +1294,11 @@
         }
 
         // Inicialização
+        // Garante que o input de distância comece como 'number' para o teste de 5min
+        document.getElementById('distance').type = 'number'; 
         document.getElementById('distance').value = '1.00';
         calculateZones();
+
     </script>
 </body>
 </html>
-
